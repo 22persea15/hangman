@@ -23,17 +23,25 @@ def typing(text):
   for char in words:
     time.sleep(DELAY)
     print(char, end='', flush=True)
+    
+
 
 #use a list for easier replacement and then convert to string to print
 def random_word(key):
     lives = 10
     print(f"HANGMAN\n\nyou have {lives} lives")
-    #word = (random.choice(topics_dict[key]))
-    word = ("hello")
-    line = ("")
-    for letter in word:
-        line += ("-")
-    print(line)
+    #word = list(random.choice(topics_dict[key]))
+    word = list("hello")
+    line = []
+    for index in range(0, len(word)):
+        line.append("-")
+    print (line)
+    
+    
+    #^^ above is working, rest of the funciton needs work
+    
+
+    
     while lives > 0:
         guess = input("\n>> ").lower()
         if guess in word:
