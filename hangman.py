@@ -1,9 +1,8 @@
 #HANGMAN
 
-#choose a topic OR a random topic
-#dictionary of words
-#randomly choose a word from the dictionary
-#print a row of underscores the same length as the word
+#dictionary of words done
+#randomly choose a word from the dictionary << 
+
 #remove the word from the dictionary
 #if the person's chosen letter is in the word:
 #replace the underscore(s) with the letter
@@ -25,8 +24,6 @@ def typing(text):
     print(char, end='', flush=True)
     
 
-
-#use a list for easier replacement and then convert to string to print
 def random_word(key):
     lives = 10
     print(f"HANGMAN\n\nyou have {lives} lives")
@@ -36,20 +33,27 @@ def random_word(key):
     for index in range(0, len(word)):
         line.append("-")
     print (line)
-    
-    
     #^^ above is working, rest of the funciton needs work
     
-
+    guess = input("\n>> ").lower()
     
-    while lives > 0:
-        guess = input("\n>> ").lower()
-        if guess in word:
-            line = line.replace(line[0], guess)
-            print(line)
-        else:
-            lives -= 1
-            print(f"you have {lives} lives")
+    #find the index(es) of the guess in the string
+    #then use that index to replace the - in line with guess
+    #print line as a string, convert back to list and repeat
+    if guess in word:
+        index = word.index(guess)
+        line[index] = guess
+        print(line)
+    
+    
+    #while lives > 0:
+        #guess = input("\n>> ").lower()
+        #if guess in word:
+            #line = line.replace(line[0], guess)
+            #print(line)
+        #else:
+            #lives -= 1
+            #print(f"you have {lives} lives")
 
 def gameplay(topic):
     os.system("clear")
